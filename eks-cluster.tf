@@ -115,12 +115,12 @@ resource "helm_release" "aws_load_balancer_controller" {
 resource "aws_cloudfront_distribution" "app_distribution" {
   origin {
     domain_name = "k8s-default-hellowor-a27ab4cdfe-576779226.eu-west-1.elb.amazonaws.com"
-    origin_id   = "myALBOrigin"  # Simplified and more readable Origin ID
+    origin_id   = "myALBOrigin"
 
     custom_origin_config {
       http_port              = 80
       https_port             = 443
-      origin_protocol_policy = "http-only"  # Ensures connections to the ALB use HTTP only
+      origin_protocol_policy = "http-only"
       origin_ssl_protocols   = ["TLSv1.2"]
     }
   }
